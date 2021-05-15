@@ -13,7 +13,7 @@ _**Steps for Option 1**_
 
 > Building Docker Image
 ````
-docker build -t nileshacharya9047/basicnodeserve:v1 .
+docker build -t nileshacharya9047/basicnodeserver:v1 .
 ````
 > Containerizing Docker Image
 ````
