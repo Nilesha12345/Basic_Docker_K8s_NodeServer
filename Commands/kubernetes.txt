@@ -14,4 +14,10 @@ kubectl delete -f .\K8s\Node\ --namespace=nodeserver
 
 
 To run Code Github
+For Namespace
+kubectl create ns nodeserver
+For Deployment
+kubectl apply -f https://raw.githubusercontent.com/Nilesha12345/Basic_Docker_K8s_NodeServer/master/K8s/Node/deployment.yaml
+For service
+kubectl apply -f https://raw.githubusercontent.com/Nilesha12345/Basic_Docker_K8s_NodeServer/master/K8s/Node/service.yml
 
