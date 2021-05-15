@@ -1,23 +1,80 @@
-To run from Code
-kubectl create ns nodeserver
-kubectl apply -f .\K8s\Node\ --namespace=nodeserver
+#TO CREATE A NAMESPACE
+-->  kubectl create namespace "{namespace name}"
 
-To check deployment, pod and services
-kubectl get all -n nodeserver
+#TO CREATE A DEPLOYMENT
+--> kubectl apply -f "{path to deployment.yaml file}"
+--> kubectl apply -f "{path to deployment.yaml file}" -n "{namespace name}"
 
+#TO SEE THE DEPLOYMENTS
+--> kubectl get deployments
+--> kubectl get deployments -n "{namespace name}"
 
+#TO SEE THE DEPLOYMENT DETAILS
+--> kubectl describe deployment "{deployment name}"
+--> kubectl describe deployment "{deployment name}" -n "{namespace name}"
 
-To delete Deployment
-kubectl delete ns nodeserver 
-   or 
-kubectl delete -f .\K8s\Node\ --namespace=nodeserver
+#TO SEE THE PODS
+--> kubectl get pods
+--> kubectl get pods --> all-namespaces
+--> kubectl get pods -n "{namespace name}"
 
+#TO SEE DETAILS OF POD
+--> kubectl describe pods "{Pod name}"
 
-To run Code Github
-For Namespace
-kubectl create ns nodeserver
-For Deployment
-kubectl apply -f https://raw.githubusercontent.com/Nilesha12345/Basic_Docker_K8s_NodeServer/master/K8s/Node/deployment.yaml
-For service
-kubectl apply -f https://raw.githubusercontent.com/Nilesha12345/Basic_Docker_K8s_NodeServer/master/K8s/Node/service.yml
+#TO EXPOSE THE DEPLOYMENTS
+--> kubectl expose deployments "{deployment name}" --type=LoadBalancer --name="{servicename}" --port="{load balancer port}" --target-port="{container port}" -n "{namespace name}"
 
+#TO CHECK SERVICES
+--> kubectl get services 
+--> kubectl get service "{servicename}" -n "{namespace name}"
+
+#TO CHECK POD LOGS
+--> kubectl logs "{pod name}"
+
+#TO RUN COMMAND INSIDE POD --> NOTE:RUN COMMAND IN EXISTING POD (1 CONTAINER CASE)
+--> kubectl exec "{pod name}" -- {command}
+	eg:kubectl exec my-pod -- ls 
+--> kubectl exec my-pod -c my-container -->  ls  NOTE:# RUN COMMAND IN EXISTING POD(MULTI-CONTAINER CASE)
+
+#TO DELETE A POD OR SERVICE
+--> kubectl delete pod,service "{pod name}" "{servicename}" -n "{namespace name}"
+
+#TO DELETE A DEPLOYEMENT
+--> kubectl delete deployment "{deployment name}" -n "{namespace name}"
+
+#TO DELETE A NAMESPACES
+--> kubectl delete namespace "{namespace name}"
+
+#TO GET CONTAINER NAME FROM POD
+-->  kubectl get pods -n "{namespace name}" -o jsonpath='{.spec.containers[*].name}'
+
+#TO DEBUG POD OR GET LOGS 
+--> kubectl logs "{pod name}" -n "{namespace name}"                                     									-->{for single container pod}
+--> kubectl logs "{pod name}" "{container name}" -n "{namespace name}"                 									-->{for multi container pod}
+--> kubectl exec "{pod name}" -n "{namespace name}" -c "{container name}" -- {command} ${ARG1} ${ARG2} ... ${ARGN}		-->{for non-interactive commands with arg}
+--> kubectl exec -ti "{pod name}" -n "{namespace name}" -c "{container name}" {command}									-->{for interactive commands without arg}
+--> kubectl logs --previous "{pod name}" --container "{container name}" -n "{namespace name}"	  						-->{for multi container pod}
+--> kubectl logs --previous "{container name}" -n "{namespace name}"														-->{for single container pod}
+--> kubectl logs --label "{pod label name}" -n "{namespace name}"														-->{for multi container pod}
+--> kubectl logs "{pod name}" --all-containers																			-->{for multi container pod}
+--> kubectl logs "{pod name}" -n "{namespace name}" --since={no of hrs}
+--> kubectl logs "{pod name}" -n "{namespace name}" --since-time={absolute time}
+--> kubectl logs "{pod name}" -n "{namespace name}" --tail  																-->most recent events-10 lines
+--> kubectl logs "{pod name}" -n "{namespace name}" --follow [-f]														-->show logs as being processed
+
+#TO GET EVENTS HAPPENING WITHIN THE K8S CLUSTER
+--> kubectl get events
+--> kubectl get events --field-selector {data}
+
+#TO GET CPU UTILIZATION AND RAM USAGE -->Need metrics-server installed -->Alternative Prometheus
+--> kubectl top pod -->for pods -->memory and CPU time used
+--> kubectl top node -->for node -->total capacity and current usage for both CPU and Memory
+
+#TO CREATE A CONFIGMAP
+--> kubectl create configmap "{CONFIGMAP NAME}" --from-file "{Path of the config file in json or yaml}"
+
+#TO GET  yaml file from json for configmaps
+--> kubectl get configmaps "{CONFIGMAP NAME}" -o yaml
+
+#TO GET A CONFIGMAP
+--> kubectl get configmaps
