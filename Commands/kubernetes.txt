@@ -1,0 +1,17 @@
+To run from Code
+kubectl create ns nodeserver
+kubectl apply -f .\K8s\Node\ --namespace=nodeserver
+
+To check deployment, pod and services
+kubectl get all -n nodeserver
+
+
+
+To delete Deployment
+kubectl delete ns nodeserver 
+   or 
+kubectl delete -f .\K8s\Node\ --namespace=nodeserver
+
+
+To run Code Github
+

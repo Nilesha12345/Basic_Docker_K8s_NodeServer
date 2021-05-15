@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basicnodeserver
+  labels:
+    app: basicnodeserver
+spec:
+  selector:
+    matchLabels:
+      app: basicnodeserver
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: basicnodeserver
+    spec:
+      containers:
+      - name: basicnodeserver
+        image: nileshacharya9047/basicnodeserver:v1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9000
+        resources:
+          requests:
+            cpu: 500m
+          limits:
+            cpu: 500m

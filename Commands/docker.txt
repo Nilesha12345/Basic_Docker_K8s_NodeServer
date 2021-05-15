@@ -1,0 +1,29 @@
+From DockerHub :: https://hub.docker.com/r/nileshacharya9047/basicnodeserver/tags?page=1&ordering=last_updated
+# docker pull image from DockerHub
+docker pull nileshacharya9047/basicnodeserver:v1
+
+From Code
+# docker build
+docker build -t nileshacharya9047/basicnodeserve:v1 .
+
+# docker run
+docker run -d --name node_server -p 9000:9000 --rm --pull missing nileshacharya9047/basicnodeserve:v1
+
+optional 
+#docker add tag 
+docker tag nileshacharya9047/basicnodeserver:v1 samplenodeserver:latest
+
+#docker push
+docker push nileshacharya9047/basicnodeserver:v1
+
+#docker list images
+docker images
+
+#docker list running containers
+docker container ls
+
+#docker stop particular running container
+docker container stop <<containerId>>
+
+#docker remove image
+docker image rmi nileshacharya9047/basicnodeserver:v1
