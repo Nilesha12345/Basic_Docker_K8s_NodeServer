@@ -56,5 +56,5 @@ You can also perform Post call via postman with Following URL with any json body
 `````
 http://localhost:9000/post
 ``````
-You can find more commands in [docker.txt](./Commands/docker.txt)
+You can find more commands in [Docker.txt](./Commands/docker.txt)
 
