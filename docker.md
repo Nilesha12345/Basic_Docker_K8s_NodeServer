@@ -17,7 +17,7 @@ docker build -t nileshacharya9047/basicnodeserve:v1 .
 ````
 > Containerizing Docker Image
 ````
-docker run -d --name node_server -p 9000:9000 --rm --pull missing nileshacharya9047/basicnodeserve:v1
+docker run -d --name node_server -p 9000:9000 --rm --pull missing nileshacharya9047/basicnodeserver:v1
 ````
 > Adding more tags to Docker image (Optional)
 ````
@@ -34,7 +34,7 @@ docker pull nileshacharya9047/basicnodeserver:v1
 ````` 
 > Containerizing Docker Image
 ````` 
-docker run -d --name node_server -p 9000:9000 --rm --pull missing nileshacharya9047/basicnodeserve:v1
+docker run -d --name node_server -p 9000:9000 --rm --pull missing nileshacharya9047/basicnodeserver:v1
 `````
 
 **NOTE : Below commands are same for Option 1 and 2. Complete either one of the above options and then execute the below instructions**
