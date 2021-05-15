@@ -8,8 +8,8 @@
 
 _**Steps for Option 1**_
 
-1.Unzip code from Github.  Once unzipped the files,  Move inside the folder until you find DockerFile,  Now open Powershell or Terminal in the same directory.
-2.Run the following commands
+1. Unzip code from Github.  Once unzipped the files,  Move inside the folder until you find DockerFile,  Now open Powershell or Terminal in the same directory.
+2. Run the following commands
 
 > Building Docker Image
 ````
@@ -27,7 +27,7 @@ docker tag nileshacharya9047/basicnodeserver:v1 samplenodeserver:latest
 
 _**Steps for Option 2**_         
        
-1 & 2 .Execute the following On Powershell or Terminal
+1 & 2. Execute the following On Powershell or Terminal
 > Pulling DockerImage from DockerHub
 ````` 
 docker pull nileshacharya9047/basicnodeserver:v1
@@ -40,7 +40,7 @@ docker run -d --name node_server -p 9000:9000 --rm --pull missing nileshacharya9
 **NOTE : Below commands are same for Option 1 and 2. Complete either one of the above options and then execute the below instructions**
 
 
-3.Open the Browser and enter the URL : 
+3. Open the Browser and enter the URL : 
 `````
 http://localhost:9000/ 
 `````
@@ -50,11 +50,11 @@ http://localhost:9000/date
 `````
 It should reply with "Hii, Welcome to Basic Nodejs Docker and Kubernetes Application" or "Hii Today is Sat May 15 2021 18:40:29 GMT+0000 (Coordinated Universal Time)"
 
-4.Now you application is Up and Running. 
+4. Now you application is Up and Running. 
 
 You can also perform Post call via postman with Following URL with any json body
 `````
 http://localhost:9000/post
 ``````
-You can find more commands in [Docker.txt](./Commands/docker.txt)
+You can find more commands in [Docker](./Commands/docker.txt)
 
