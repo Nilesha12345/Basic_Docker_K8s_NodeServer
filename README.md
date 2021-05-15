@@ -3,4 +3,4 @@ This is a Repo for Basic NodeJs WebServer on Docker and Kubernetes
 
 **You can find Docker steps in [Docker.md](./docker.md)**
 
-**You can find kubernetes steps in [kubernetes.txt] (kubernetes.txt)**
+**You can find kubernetes steps in [kubernetes.md](./kubernetes.mc)**
